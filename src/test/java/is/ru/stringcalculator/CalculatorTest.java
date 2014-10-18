@@ -32,6 +32,6 @@ public class CalculatorTest {
 	@Test
     	public void testHandlingOfNewline(){
         assertEquals(13, Calculator.add("7,3\n3"));
-
+	}
 
 }
