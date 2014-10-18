@@ -3,7 +3,7 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
-		System.out.println("\n\nStart Unchanged: " + text + " ---------------\n");
+//		System.out.println("\n\nStart Unchanged: " + text + " ---------------\n");
 		if(text.equals("")){
 //			System.out.println("The empty String: \"" + text + "\"\n");
 			return 0;  //If the string is empty then return 0
@@ -39,14 +39,14 @@ public class Calculator {
 
 	public static int removeNewline(String text){
 			String rem = "\n";
-			System.out.println("removing newline char from: " + text + "\n");
+//			System.out.println("removing newline char from: " + text + "\n");
 			if(text.charAt(0) == '\n'){
 				text = text.replace(rem, "");
 			}
 			else{
 				text = text.replace(rem, ",");
 			}
-			System.out.println("After removing newline char from: " + text + "\n");
+//			System.out.println("After removing newline char from: " + text + "\n");
 			return check(text);
                 }
 
