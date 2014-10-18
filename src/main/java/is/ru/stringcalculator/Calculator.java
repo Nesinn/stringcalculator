@@ -4,7 +4,7 @@ public class Calculator {
 
 	public static int add(String text){
 		if(text.equals("")){
-			return 0;
+			return 0;  //If the string is empty then return 0
 		}
 		else if(text.contains(",")){
 			return sum(splitNumbers(text));
@@ -14,11 +14,11 @@ public class Calculator {
 	}
 
 	private static int toInt(String number){
-		return Integer.parseInt(number);
+		return Integer.parseInt(number);  //change the string into integer
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split(",");
+	    return numbers.split(",");  //take the string and split it into string array
 	}
       
     private static int sum(String[] numbers){
