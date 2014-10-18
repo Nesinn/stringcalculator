@@ -6,8 +6,8 @@ import org.junit.Test;
 public class CalculatorTest {
 
 	public static void main(String args[]) {
-      org.junit.runner.JUnitCore.main("is.ru.stringcalculator.CalculatorTest");
-    }
+        org.junit.runner.JUnitCore.main("is.ru.stringcalculator.CalculatorTest");
+    	}
 
 	@Test
 	public void testEmptyString() {
@@ -35,8 +35,8 @@ public class CalculatorTest {
 	}
 	
 	@Test
-        public void testHandlingOfNewline(){
-        assertEquals(3, Calculator.add("\/\/;\\n1;2"));
+        public void testSelectDelimiter(){
+        assertEquals(6, Calculator.add("/" + "/;\n4;2"));
         }
 	
 }
