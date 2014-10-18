@@ -33,5 +33,10 @@ public class CalculatorTest {
     	public void testHandlingOfNewline(){
         assertEquals(13, Calculator.add("7,3\n3"));
 	}
-
+	
+	@Test
+        public void testHandlingOfNewline(){
+        assertEquals(3, Calculator.add("\/\/;\\n1;2"));
+        }
+	
 }
