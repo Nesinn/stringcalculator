@@ -18,16 +18,16 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split(",");  //take the string and split it into string array
+	    return numbers.split(",|\\n");  //take the string and split it into string array
 	}
       
-    private static int sum(String[] numbers){
- 	    int total = 0;
+        private static int sum(String[] numbers){
+ 	int total = 0;
         for(String number : numbers){
-		    total += toInt(number);
-		}
-		return total;
-    }
+		total += toInt(number);
+	}
+	return total;
+    	}
 
 
 
