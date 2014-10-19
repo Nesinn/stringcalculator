@@ -59,4 +59,9 @@ public class CalculatorTest {
         public void testMoreThenOneDelimiter(){
         assertEquals(6, Calculator.add("/" + "/[*][%]\n1*2%3"));
         }
+
+	@Test
+        public void testDelimiterOfAnyLength(){
+        assertEquals(20, Calculator.add("/" + "/[***][%][*]\n1***2%3*4,8\n2"));
+        }
 }

@@ -87,13 +87,14 @@ public class Calculator {
 	}
 
 	public static int removeNewline(String text){
-		String rem = "\n";
 		if(testing()) System.out.println("removing newline char from: " + text + "\n");
 		if(text.charAt(0) == '\n'){
-			text = text.replace(rem, "");
+			if(testing()) System.out.println("found newline char at beginning of string and removing it\n");
+			return check(text.substring(1));
 		}
 		else{
-			text = text.replace(rem, ",");
+			if(testing()) System.out.println("found newline char not in beginning\n");
+			text = text.replace("\n", ",");
 		}
 		if(testing())System.out.println("After removing newline char from: " + text + "\n");
 		return check(text);
