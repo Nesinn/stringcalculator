@@ -22,7 +22,7 @@ public class CalculatorTest {
 	@Test
 	public void testTwoNumbers() {
 		assertEquals(3, Calculator.add("1,2"));
-	}	
+	}
 
 	@Test
         public void testMultipleNumbers(){
@@ -33,10 +33,14 @@ public class CalculatorTest {
     	public void testHandlingOfNewline(){
         assertEquals(13, Calculator.add("7,3\n3"));
 	}
-	
+
 	@Test
         public void testSelectDelimiter(){
         assertEquals(6, Calculator.add("/" + "/;\n4;2"));
         }
-	
+
+	@Test(expected=IllegalArgumentException.class)
+        public void testIllegalArgumentException(){
+        Calculator.add("1,-1");
+        }
 }

@@ -3,28 +3,41 @@ package is.ru.stringcalculator;
 public class Calculator {
 	
 	public static boolean testing(){
-		return false;
+		return true;
 	}
 
 	public static String min(String text){
                 String str = "Negatives not allowed: ";
                 boolean first = true;
+		if(testing())System.out.println("The ErrorExeption: " + text + "\n");
                 for(int i = 0; i < text.length(); i++){
+			if(testing())System.out.println("Checking here for - symbol: " + text.charAt(i) + " where i = " + i + " \n");
                        	if(text.charAt(i) == '-'){
-                               	int j = i;
+				if(testing())System.out.println("Found - symbol at: " + i + "\n");
+                               	int j = i + 1;
                                	if(first){
                                        	first = false;
                                	}
                                	else{
                                        	str += ", ";
                                	}
-                       	    	while(text.charAt(j) != ',' || text.charAt(j) != '\n'){
-                                       	str += text.charAt(j);
-                                       	j++;
+				str += "-";
+                       	    	while(j < text.length()){
+					String charcheck = text.charAt(j) + "";
+					if(testing())System.out.println("While looping symbol at: " + j + ", j holding char: " + charcheck + "\n");
+					if(charcheck.matches(".*\\d.*")){
+						if(testing())System.out.println("Adding the numbs after -: " + text.charAt(j) + "\n");
+                                       		str += charcheck;
+                                       		j++;
+					}
+					else{
+						j = text.length();
+					}
                                	}
                        	}
                 }
                 str += "\n";
+		if(testing())System.out.println("This is the Error message: " + str);
                 return str;
         }
 
