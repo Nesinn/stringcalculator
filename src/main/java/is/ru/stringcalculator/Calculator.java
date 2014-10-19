@@ -3,7 +3,7 @@ package is.ru.stringcalculator;
 public class Calculator {
 	
 	public static boolean testing(){
-		return true;
+		return false;
 	}
 
 	public static String min(String text){
