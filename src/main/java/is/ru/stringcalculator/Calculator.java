@@ -61,9 +61,13 @@ public class Calculator {
 	public static int check(String text){
 		if(testing())print_test(text);
 		if(text.contains("/" + "/")){
-			if(testing())System.out.println("\nDelimiter removal: " + text + "\n");
+			if(testing())System.out.println("\nDelimiter change: " + text + "\n");
 			return selectDelimiter(text);
 		}
+		else if(text.contains("[")){
+                        if(testing())System.out.println("Delimiter array change: " + text + "\n");
+                        return  multiDelimiter(text);
+                }
 		else if(text.contains("\n")){
 			if(testing())System.out.println("Newline changing: " + text + "\n");
                         return removeNewline(text);
@@ -95,11 +99,19 @@ public class Calculator {
 		return check(text);
         }
 
-	private static int selectDelimiter(String number){
-		String delim = "" + number.charAt(2); //exepted delimiters
-		for(int i = 3 ; number.charAt(i) != '\n' ; i++){
-			delim += (number.charAt(i) + "");
+        private static int multiDelimiter(String text){
+		String delim = (text.charAt(1) + "");
+		int i;
+		for(i = 2 ; text.charAt(i) != ']'; i++){
+			delim += text.charAt(i);
 		}
+		text = text.replace("[" + delim + "]","");
+		text = text.replace(delim,",");
+		return check(text);
+	}
+
+	private static int selectDelimiter(String number){
+		String delim = "" + number.charAt(2); //exepted delimiter
 		String delnum = ("/" + "/" + delim + "\n"); //what I want to remove
 		String onlynum = (number.replace(delnum, ""));  //the new string with removed user delimiter
 		String num = onlynum.replace(delim, ",");  //exchange the text using the delimiters
