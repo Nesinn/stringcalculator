@@ -44,4 +44,10 @@ public class CalculatorTest {
 	Calculator.add("2,-4,3,-5");
         //assertEquals("Negatives not allowed: -4, -5", Calculator.add(Calculator.add("2,-4,3,-5")));
         }
+
+	@Test
+        public void testTooHighNumbers(){
+        assertEquals(2, Calculator.add("1001,2"));
+        }
+
 }
