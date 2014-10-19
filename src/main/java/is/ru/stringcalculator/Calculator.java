@@ -129,7 +129,10 @@ public class Calculator {
  		int total = 0;
         	for(String number : numbers){
 			if(testing())System.out.println("Line splitting: " + number + "\n");
-			total += toInt(number);
+			int num = toInt(number);
+			if(num < 1000){   //ignore numbers above 1000
+				total += num;
+			}
 		}
 		if(testing())System.out.println("this is the outcome: " + total + "\n");
 		return total;
