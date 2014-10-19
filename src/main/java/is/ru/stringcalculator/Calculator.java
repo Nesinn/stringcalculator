@@ -36,11 +36,10 @@ public class Calculator {
 			return 0;  //If the string is empty then return 0
 		}
 		else if(text.contains("-")){
-//			throw new ErrorException(min(text));
-			//minus.MinusExeption(text);
-			System.out.println(min(text));
-			return -1337;
-		}
+			if(testing())System.out.println("This is causing throw error: " + text + "\n");
+                        String errorString = min(text);
+                        throw new IllegalArgumentException(errorString);
+                }
 		else{
 			return check(text);
 		}
