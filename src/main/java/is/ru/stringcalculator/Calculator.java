@@ -1,12 +1,45 @@
 package is.ru.stringcalculator;
 
 public class Calculator {
+	
+	public static boolean testing(){
+		return false;
+	}
+
+	public static String min(String text){
+                String str = "Negatives not allowed: ";
+                boolean first = true;
+                for(int i = 0; i < text.length(); i++){
+                       	if(text.charAt(i) == '-'){
+                               	int j = i;
+                               	if(first){
+                                       	first = false;
+                               	}
+                               	else{
+                                       	str += ", ";
+                               	}
+                       	    	while(text.charAt(j) != ',' || text.charAt(j) != '\n'){
+                                       	str += text.charAt(j);
+                                       	j++;
+                               	}
+                       	}
+                }
+                str += "\n";
+                return str;
+        }
+
 
 	public static int add(String text){
-//		System.out.println("\n\nStart Unchanged: " + text + " ---------------\n");
+		if(testing())System.out.println("\n\nStart Unchanged: " + text + " ---------------\n");
 		if(text.equals("")){
-//			System.out.println("The empty String: \"" + text + "\"\n");
+			if(testing())System.out.println("The empty String: \"" + text + "\"\n");
 			return 0;  //If the string is empty then return 0
+		}
+		else if(text.contains("-")){
+//			throw new ErrorException(min(text));
+			//minus.MinusExeption(text);
+			System.out.println(min(text));
+			return -1337;
 		}
 		else{
 			return check(text);
@@ -14,9 +47,9 @@ public class Calculator {
 	}
 
 	public static int check(String text){
-//		print_test(text);
+		if(testing())print_test(text);
 		if(text.contains("/" + "/")){
-//			System.out.println("\nDelimiter removal: " + text + "\n");
+			if(testing())System.out.println("\nDelimiter removal: " + text + "\n");
 			return selectDelimiter(text);
 		}
 		else if(text.contains("\n")){
@@ -38,17 +71,17 @@ public class Calculator {
 	}
 
 	public static int removeNewline(String text){
-			String rem = "\n";
-//			System.out.println("removing newline char from: " + text + "\n");
-			if(text.charAt(0) == '\n'){
-				text = text.replace(rem, "");
-			}
-			else{
-				text = text.replace(rem, ",");
-			}
-//			System.out.println("After removing newline char from: " + text + "\n");
-			return check(text);
-                }
+		String rem = "\n";
+		if(testing()) System.out.println("removing newline char from: " + text + "\n");
+		if(text.charAt(0) == '\n'){
+			text = text.replace(rem, "");
+		}
+		else{
+			text = text.replace(rem, ",");
+		}
+//		System.out.println("After removing newline char from: " + text + "\n");
+		return check(text);
+        }
 
 	private static int selectDelimiter(String number){
 		String delim = "" + number.charAt(2); //exepted delimiters
