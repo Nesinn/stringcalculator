@@ -51,7 +51,12 @@ public class CalculatorTest {
         }
 
 	@Test
-        public void testMultibleDelimiters(){
+        public void testMultibleDelimiter(){
         assertEquals(6, Calculator.add("[***]\n1***2***3"));
+        }
+
+	@Test
+        public void testMoreThenOneDelimiter(){
+        assertEquals(6, Calculator.add("/" + "/[*][%]\n1*2%3"));
         }
 }

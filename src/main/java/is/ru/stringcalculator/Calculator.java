@@ -110,7 +110,14 @@ public class Calculator {
 		return check(text);
 	}
 
+	private static String MoreThenOneDel(String text){
+		return text.replace("/" + "/", "");
+	}
+
 	private static int selectDelimiter(String number){
+		if(number.charAt(2) == '['){
+			return check(MoreThenOneDel(number));
+		}
 		String delim = "" + number.charAt(2); //exepted delimiter
 		String delnum = ("/" + "/" + delim + "\n"); //what I want to remove
 		String onlynum = (number.replace(delnum, ""));  //the new string with removed user delimiter
