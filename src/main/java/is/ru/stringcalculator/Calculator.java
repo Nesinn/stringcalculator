@@ -53,15 +53,15 @@ public class Calculator {
 			return selectDelimiter(text);
 		}
 		else if(text.contains("\n")){
-//			System.out.println("Newline changing: " + text + "\n");
+			if(testing())System.out.println("Newline changing: " + text + "\n");
                         return removeNewline(text);
                 }
 		else if(text.contains(",")){
-//                        System.out.println("Done splitting: " + text + "\n");
+                        if(testing())System.out.println("Done splitting: " + text + "\n");
                         return sum(splitNumbers(text));
                 }
 		else{
-//			System.out.println("no split: " + text + "\n");
+			if(testing())System.out.println("no split: " + text + "\n");
 			return 1;
 		}
         }
@@ -79,7 +79,7 @@ public class Calculator {
 		else{
 			text = text.replace(rem, ",");
 		}
-//		System.out.println("After removing newline char from: " + text + "\n");
+		if(testing())System.out.println("After removing newline char from: " + text + "\n");
 		return check(text);
         }
 
@@ -89,15 +89,17 @@ public class Calculator {
 		String onlynum = (number.replace(delnum, ""));  //the new string with removed user delimiter
 		String num = onlynum.replace(delim, ",");  //exchange the text using the delimiters
 
-		//this is for output testing
-//		System.out.println("\nThis is an outprint!\ndelim:");
-//		System.out.println(delim);
-//		System.out.println("\nnumber:");
-//		System.out.println(number);
-//		System.out.println("\nnumber after the removal of delim:");
-//              System.out.println(onlynum);
-//		System.out.println("\nOutprint complete!\n");
-		//output testing done
+		if(testing()){
+			//this is for output testing
+			System.out.println("\nThis is an outprint!\ndelim:");
+			System.out.println(delim);
+			System.out.println("\nnumber:");
+			System.out.println(number);
+			System.out.println("\nnumber after the removal of delim:");
+	              	System.out.println(onlynum);
+			System.out.println("\nOutprint complete!\n");
+			//output testing done
+		}
 
                 return check(num);  //now check again. 
         }
@@ -114,10 +116,10 @@ public class Calculator {
         private static int sum(String[] numbers){
  		int total = 0;
         	for(String number : numbers){
-//			System.out.println("Line splitting: " + number + "\n");
+			if(testing())System.out.println("Line splitting: " + number + "\n");
 			total += toInt(number);
 		}
-//		System.out.println("this is the outcome: " + total + "\n");
+		if(testing())System.out.println("this is the outcome: " + total + "\n");
 		return total;
     	}
 
