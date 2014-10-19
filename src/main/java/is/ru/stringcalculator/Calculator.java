@@ -97,7 +97,10 @@ public class Calculator {
 
 	private static int selectDelimiter(String number){
 		String delim = "" + number.charAt(2); //exepted delimiters
-		String delnum = "" + number.charAt(0) + number.charAt(1) + number.charAt(2); //what I want to remove
+		for(int i = 3 ; number.charAt(i) != '\n' ; i++){
+			delim += (number.charAt(i) + "");
+		}
+		String delnum = ("/" + "/" + delim + "\n"); //what I want to remove
 		String onlynum = (number.replace(delnum, ""));  //the new string with removed user delimiter
 		String num = onlynum.replace(delim, ",");  //exchange the text using the delimiters
 
